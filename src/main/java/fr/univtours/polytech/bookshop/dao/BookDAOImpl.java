@@ -16,7 +16,7 @@ public class BookDAOImpl implements BookDAO {
 
     @Override
     public BookBean getBook(Integer id) {
-        return em.getReference(BookBean.class, id);
+        return em.find(BookBean.class, id);
     }
 
     @SuppressWarnings("unchecked")
@@ -33,7 +33,7 @@ public class BookDAOImpl implements BookDAO {
 
     @Override
     public void updateBook(BookBean bookBean) {
-        em.persist(bookBean);
+        em.merge(bookBean);
     }
 
     @Override

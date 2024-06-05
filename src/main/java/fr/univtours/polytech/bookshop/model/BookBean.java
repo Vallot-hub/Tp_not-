@@ -2,11 +2,16 @@ package fr.univtours.polytech.bookshop.model;
 
 import java.io.Serializable;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.xml.bind.annotation.XmlRootElement;
+import jakarta.xml.bind.annotation.XmlTransient;
 
+@XmlRootElement
 @Entity(name = "BOOK")
 public class BookBean implements Serializable {
 
@@ -18,6 +23,8 @@ public class BookBean implements Serializable {
     private Float price;
     private String currency;
 
+    @XmlTransient
+	@JsonIgnore
     public Integer getId() {
         return id;
     }
@@ -50,6 +57,8 @@ public class BookBean implements Serializable {
         this.price = price;
     }
 
+    @XmlTransient
+	@JsonIgnore
     public String getCurrency() {
         return currency;
     }
