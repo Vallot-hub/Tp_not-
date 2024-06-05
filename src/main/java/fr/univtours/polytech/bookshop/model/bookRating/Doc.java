@@ -88,11 +88,8 @@ public class Doc {
 
     @JsonProperty("ratings_average")
     public Double getRatings_average() {
-        if (ratingsAverage != null)
-        {
-            return ratingsAverage;
-        }
-        return 42.00;
+        return ratingsAverage;
+   
     }
 
     @JsonProperty("ratings_average")
@@ -102,11 +99,8 @@ public class Doc {
 
     @JsonProperty("ratings_count")
     public Integer getRatings_count() {
-        if (ratingsCount != null) 
-        {
-            return ratingsCount;
-        }
-        return 47;
+        return ratingsCount;
+
     }
 
     @JsonProperty("ratings_count")

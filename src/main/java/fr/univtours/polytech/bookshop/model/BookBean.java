@@ -8,6 +8,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Transient;
 import jakarta.xml.bind.annotation.XmlRootElement;
 import jakarta.xml.bind.annotation.XmlTransient;
 
@@ -22,9 +23,13 @@ public class BookBean implements Serializable {
     private String author;
     private Float price;
     private String currency;
+    @Transient
+    private Integer ratingCount;
+    @Transient
+    private double ratingAverage;
 
     @XmlTransient
-	@JsonIgnore
+    @JsonIgnore
     public Integer getId() {
         return id;
     }
@@ -58,13 +63,29 @@ public class BookBean implements Serializable {
     }
 
     @XmlTransient
-	@JsonIgnore
+    @JsonIgnore
     public String getCurrency() {
         return currency;
     }
 
     public void setCurrency(String currency) {
         this.currency = currency;
+    }
+
+    public Integer getRatingCount() {
+        return ratingCount;
+    }
+
+    public void setRatingCount(Integer ratingCount) {
+        this.ratingCount = ratingCount;
+    }
+
+    public double getRatingAverage() {
+        return ratingAverage;
+    }
+
+    public void setRatingAverage(double ratingAverage) {
+        this.ratingAverage = ratingAverage;
     }
 
 }
